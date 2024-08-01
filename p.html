@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de productos</title>
+    <link rel="stylesheet" href="p.css">
+</head>
+<body>
+    <button class="btn-opciones" id="boton_de_opciones" onclick="elegirOpciones()">Opciones</button>
+    <div class="form_content" id="form_content">
+        <div class="form">
+            <h2 class="heading">AGREGAR PRODUCTO AL CATALOGO</h2>
+            <input placeholder="producto" class="input" type="text" id="prdct">
+            <input placeholder="precio" class="input" type="number" id="prc">
+            <input placeholder="stock" class="input" type="number" id="stc">
+            <input placeholder="categoria" class="input" type="text" id="cat">
+            <button class="btn" onclick="agregarAlCatalogo(prdct.value, prc.value, stc.value, cat.value)">agregar al catálogo</button>
+        </div>
+    </div>
+    <div class="form_content" id="menu_para_actualizar_stock" hidden>
+        <div class="form">
+            <h2 class="heading">ACTUALIZAR STOCK</h2>
+            <input placeholder="nombre del producto" class="input" type="text" id="nuevo_stock">
+            <button class="btn" onclick="cambiarStock(nuevo_stock.value)">Actualizar stock</button>
+        </div>
+    </div>
+    <div class="form_content" id="buscar_por_categoria" hidden> 
+        <div class="form">
+            <h2 class="heading">BUSCAR PRODUCTO/S POR SU CATEGORIA</h2>
+            <input placeholder="categoria" class="input" type="text" id="categ">
+            <button class="btn" onclick="buscarPorCategoria(categ.value)">Buscar</button>
+        </div>        
+    </div>
+    <div class="form_content" id="eliminar_producto" hidden>
+        <div class="form">
+            <h2 class="heading">ELIMINAR PRODUCTO</h2>
+            <input placeholder="Nombre del producto" class="input" type="text" id="nombreParaEliminar">
+            <button class="btn" onclick="eliminarProductoDelCatalogo(nombreParaEliminar.value)">Eliminar producto</button>
+        </div>
+    </div>
+    <div class="form_content">
+        <div class="form">
+            <h3 id="valorTotalCatalogo"></h3>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoría</th>
+                <th><select class="btn btn-ordenar">
+                    <option value="alfab_order">Ordenar alfabeticamente</option>
+                    <option value="numeric_order">Ordenar numericamente</option>
+                </select></th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+    </table>
+    <script src="p.js"></script>
+</body>
+</html>
